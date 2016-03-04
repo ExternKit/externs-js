@@ -18,7 +18,7 @@ class Main
   static function main()
   {
     function respond(request : Request, response : Response, next : NextCallback) : Void {
-      response.send('hello ' + request.params.name);
+      response.send('hello ${request.params.name}');
       next();
     }
 
@@ -27,7 +27,7 @@ class Main
     server.head('/hello/:name', respond);
 
     server.listen(8080, function() {
-      trace('%s listening at %s', server.name, server.url);
+      trace('${server.name} listening at ${server.url}');
     });
   }
 }
