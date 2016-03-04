@@ -9,6 +9,7 @@
 
 ```haxe
 import js.commander.*;
+import js.Node;
 
 class Main
 {
@@ -24,14 +25,14 @@ class Main
       .option('-P, --pineapple', 'Add pineapple')
       .option('-b, --bbq-sauce', 'Add bbq sauce')
       .option('-c, --cheese [type]', 'Add the specified type of cheese [marble]', 'marble')
-      .parse(process.argv)
+      .parse(Node.process.argv)
     ;
     
     trace('you ordered a pizza with:');
-    if (program.peppers) trace('  - peppers');
-    if (program.pineapple) trace('  - pineapple');
-    if (program.bbqSauce) trace('  - bbq');
-    trace('  - %s cheese', program.cheese);
+    if (null != program.peppers) trace('  - peppers');
+    if (null != program.pineapple) trace('  - pineapple');
+    if (null != program.bbqSauce) trace('  - bbq');
+    trace('  - ${program.cheese} cheese');
   }
 }
 ```
