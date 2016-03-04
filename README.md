@@ -26,7 +26,7 @@ class Main
     trace(original.x.y, cloned.x.y);
     // -> 1, 2
 
-    console.log(Merge.recursive(true, original, { x: { z: 2 } }));
+    trace(Merge.recursive(true, original, { x: { z: 2 } }));
     // -> {"x": { "y": 1, "z": 2 } }
   }
 }
