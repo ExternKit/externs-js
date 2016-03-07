@@ -1,4 +1,4 @@
-# extern-js-commander
+# extern-js-schedule
 
 - **Target :** Javascript (NodeJS)
 - **Library :** node-schedule 
