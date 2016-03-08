@@ -19,13 +19,15 @@ private abstract AccessMode(String) from String to String
 @:noPackageRestrict
 class ExternBuilder
 {
+    private static var MODES : Array<String> = [ AccessMode.Global, AccessMode.Window, AccessMode.Require ];
+
     @:isVar
     private static var accessMode(get, null) : String;
     private static function get_accessMode() : String
     {
         if (null == ExternBuilder.accessMode) {
             var definedMode = Compiler.getDefine('extkit_mode');
-            ExternBuilder.accessMode = ((['global', 'window', 'require'].indexOf(definedMode) == -1) ? Require : definedMode);
+            ExternBuilder.accessMode = ((MODES.indexOf(definedMode) == -1) ? Require : definedMode);
         }
 
         return ExternBuilder.accessMode;
@@ -35,7 +37,7 @@ class ExternBuilder
 
     private static inline var MODE_DEFINE : String = 'extkit_mode';
 
-    private static inline var EXTERN_NAMESPACE_META : String = ':namespace';
+    private static inline var EXTERN_META : String      = ':externjs';
     private static inline var EXTERN_DONE_META : String = ':extkit_extern_done';
 
     public static macro function build() : Array<Field>
@@ -47,11 +49,15 @@ class ExternBuilder
 
     var currentClass : ClassType;
     var fields : Array<Field>;
+    var isNamespace : Bool;
+    var names : Map<String, String>;
 
     private function new()
     {
         this.currentClass = Context.getLocalClass().get();
         this.fields       = Context.getBuildFields();
+        this.isNamespace  = false;
+        this.names        = new Map();
     }
 
     public function handle() : Void
@@ -62,15 +68,52 @@ class ExternBuilder
         }
         currentClass.meta.add(ExternBuilder.EXTERN_DONE_META, [], this.pos());
 
+        // Parse meta
+        this.handleMetas();
+
         // Handle access
         this.handleAccess();
+    }
+
+    public function handleMetas() : Void
+    {
+        if (!this.currentClass.meta.has(EXTERN_META)) {
+            return;
+        }
+
+        var meta = this.currentClass.meta.extract(EXTERN_META);
+        for (param in meta[0].params) {
+            switch (param) {
+                case { expr: EBinop(OpAssign, { expr: EConst(CIdent(key)) }, value) }:
+                    switch (key) {
+                        case 'namespace':
+                            switch (value) {
+                                case { expr: EConst(CIdent('true')) }:  this.isNamespace = true;
+                                case { expr: EConst(CIdent('false')) }: this.isNamespace = false;
+                                case _: Context.fatalError('Invalid value for "namespace" parameter. Expected true or false, got ${value.expr}.', value.pos);
+                            }
+                        case mode if (MODES.indexOf(mode) != -1):
+                            switch (value) {
+                                case { expr: EConst(CIdent(overload)) } | { expr: EConst(CString(overload)) }:  this.names[mode] = overload;
+                                case _: Context.fatalError('Invalid value for "${mode}" parameter. Expected a string or an identifier, got ${value.expr}.', value.pos);
+                            }
+                        case _:
+                            Context.fatalError('Unknown @:externjs parameter "$key".', param.pos);
+                    }
+                case _:
+                    Context.fatalError('Invalid @:externjs parameter "$param".', param.pos);
+            }
+        }
     }
 
     public function handleAccess() : Void
     {
         // Get extern module name
-        var module = this.extractModule(this.currentClass);
-
+        var module = (this.names.exists(ExternBuilder.accessMode) ?
+            this.names.get(ExternBuilder.accessMode) :
+            this.extractModule(this.currentClass)
+        );
+        
         // Handle access mode
         switch (ExternBuilder.accessMode) {
             case Global, Window:
@@ -78,7 +121,7 @@ class ExternBuilder
                 var global = '${ExternBuilder.accessMode}.$module';
 
                 // Append namespace name
-                if (this.isNamespace()) {
+                if (this.isNamespace) {
                     var native = this.extractNative(true);
                     global += '.' + (null == native ? this.currentClass.name : native);
                 }
@@ -90,7 +133,7 @@ class ExternBuilder
                 var params = [ macro $v{module} ];
 
                 // Add namespace if required
-                if (this.isNamespace()) {
+                if (this.isNamespace) {
                     // Use @:native meta if specified
                     // Otherwise use class name
                     var native = this.extractNative(true);
@@ -147,11 +190,6 @@ class ExternBuilder
         }
 
         return value;
-    }
-
-    function isNamespace() : Bool
-    {
-        return this.currentClass.meta.has(ExternBuilder.EXTERN_NAMESPACE_META);
     }
 
     function pos() : Position
