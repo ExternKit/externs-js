@@ -4,7 +4,7 @@ import haxe.Constraints.Function;
 import js.node.child_process.ChildProcess;
 import js.node.events.EventEmitter;
 
-@:namespace
+@:externjs(namespace=true)
 extern class Command extends EventEmitter<Command> implements js.extern.Extern<'commander'>
 {
     public var args : Array<String>;

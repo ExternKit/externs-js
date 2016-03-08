@@ -5,7 +5,7 @@ typedef ErrorOptions = {
     ?statusCode : Int
 }
 
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.HttpError')
 extern class HttpError implements js.extern.Extern<'restify'>
 {
@@ -18,7 +18,7 @@ extern class HttpError implements js.extern.Extern<'restify'>
 }
 
 // (400 Bad Request)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.BadRequestError')
 extern class BadRequestError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -27,7 +27,7 @@ extern class BadRequestError extends HttpError implements js.extern.Extern<'rest
 }
 
 // (401 Unauthorized)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.UnauthorizedError')
 extern class UnauthorizedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -36,7 +36,7 @@ extern class UnauthorizedError extends HttpError implements js.extern.Extern<'re
 }
 
 // (402 Payment Required)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.PaymentRequiredError')
 extern class PaymentRequiredError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -45,7 +45,7 @@ extern class PaymentRequiredError extends HttpError implements js.extern.Extern<
 }
 
 // (403 Forbidden)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.ForbiddenError')
 extern class ForbiddenError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -54,7 +54,7 @@ extern class ForbiddenError extends HttpError implements js.extern.Extern<'resti
 }
 
 // (404 Not Found)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.NotFoundError')
 extern class NotFoundError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -63,7 +63,7 @@ extern class NotFoundError extends HttpError implements js.extern.Extern<'restif
 }
 
 // (405 Method Not Allowed)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.MethodNotAllowedError')
 extern class MethodNotAllowedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -72,7 +72,7 @@ extern class MethodNotAllowedError extends HttpError implements js.extern.Extern
 }
 
 // (406 Not Acceptable)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.NotAcceptableError')
 extern class NotAcceptableError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -81,7 +81,7 @@ extern class NotAcceptableError extends HttpError implements js.extern.Extern<'r
 }
 
 // (407 Proxy Authentication Required)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.ProxyAuthenticationRequiredError')
 extern class ProxyAuthenticationRequiredError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -90,7 +90,7 @@ extern class ProxyAuthenticationRequiredError extends HttpError implements js.ex
 }
 
 // (408 Request Time-out)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.RequestTimeoutError')
 extern class RequestTimeoutError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -99,7 +99,7 @@ extern class RequestTimeoutError extends HttpError implements js.extern.Extern<'
 }
 
 // (409 Conflict)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.ConflictError')
 extern class ConflictError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -108,7 +108,7 @@ extern class ConflictError extends HttpError implements js.extern.Extern<'restif
 }
 
 // (410 Gone)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.GoneError')
 extern class GoneError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -117,7 +117,7 @@ extern class GoneError extends HttpError implements js.extern.Extern<'restify'>
 }
 
 // (411 Length Required)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.LengthRequiredError')
 extern class LengthRequiredError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -126,7 +126,7 @@ extern class LengthRequiredError extends HttpError implements js.extern.Extern<'
 }
 
 // (412 Precondition Failed)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.PreconditionFailedError')
 extern class PreconditionFailedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -135,7 +135,7 @@ extern class PreconditionFailedError extends HttpError implements js.extern.Exte
 }
 
 // (413 Request Entity Too Large)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.RequestEntityTooLargeError')
 extern class RequestEntityTooLargeError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -144,7 +144,7 @@ extern class RequestEntityTooLargeError extends HttpError implements js.extern.E
 }
 
 // (414 Request-URI Too Large)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.RequesturiTooLargeError')
 extern class RequesturiTooLargeError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -153,7 +153,7 @@ extern class RequesturiTooLargeError extends HttpError implements js.extern.Exte
 }
 
 // (415 Unsupported Media Type)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.UnsupportedMediaTypeError')
 extern class UnsupportedMediaTypeError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -162,7 +162,7 @@ extern class UnsupportedMediaTypeError extends HttpError implements js.extern.Ex
 }
 
 // (416 Requested Range Not Satisfiable)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.RequestedRangeNotSatisfiableError')
 extern class RequestedRangeNotSatisfiableError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -171,7 +171,7 @@ extern class RequestedRangeNotSatisfiableError extends HttpError implements js.e
 }
 
 // (417 Expectation Failed)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.ExpectationFailedError')
 extern class ExpectationFailedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -180,7 +180,7 @@ extern class ExpectationFailedError extends HttpError implements js.extern.Exter
 }
 
 // (418 I'm a teapot)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.ImATeapotError')
 extern class ImATeapotError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -189,7 +189,7 @@ extern class ImATeapotError extends HttpError implements js.extern.Extern<'resti
 }
 
 // (422 Unprocessable Entity)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.UnprocessableEntityError')
 extern class UnprocessableEntityError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -198,7 +198,7 @@ extern class UnprocessableEntityError extends HttpError implements js.extern.Ext
 }
 
 // (423 Locked)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.LockedError')
 extern class LockedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -207,7 +207,7 @@ extern class LockedError extends HttpError implements js.extern.Extern<'restify'
 }
 
 // (424 Failed Dependency)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.FailedDependencyError')
 extern class FailedDependencyError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -216,7 +216,7 @@ extern class FailedDependencyError extends HttpError implements js.extern.Extern
 }
 
 // (425 Unordered Collection)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.UnorderedCollectionError')
 extern class UnorderedCollectionError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -225,7 +225,7 @@ extern class UnorderedCollectionError extends HttpError implements js.extern.Ext
 }
 
 // (426 Upgrade Required)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.UpgradeRequiredError')
 extern class UpgradeRequiredError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -234,7 +234,7 @@ extern class UpgradeRequiredError extends HttpError implements js.extern.Extern<
 }
 
 // (428 Precondition Required)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.PreconditionRequiredError')
 extern class PreconditionRequiredError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -243,7 +243,7 @@ extern class PreconditionRequiredError extends HttpError implements js.extern.Ex
 }
 
 // (429 Too Many Requests)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.TooManyRequestsError')
 extern class TooManyRequestsError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -252,7 +252,7 @@ extern class TooManyRequestsError extends HttpError implements js.extern.Extern<
 }
 
 // (431 Request Header Fields Too Large)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.RequestHeaderFieldsTooLargeError')
 extern class RequestHeaderFieldsTooLargeError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -261,7 +261,7 @@ extern class RequestHeaderFieldsTooLargeError extends HttpError implements js.ex
 }
 
 // (500 Internal Server Error)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.InternalServerError')
 extern class InternalServerError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -270,7 +270,7 @@ extern class InternalServerError extends HttpError implements js.extern.Extern<'
 }
 
 // (501 Not Implemented)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.NotImplementedError')
 extern class NotImplementedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -279,7 +279,7 @@ extern class NotImplementedError extends HttpError implements js.extern.Extern<'
 }
 
 // (502 Bad Gateway)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.BadGatewayError')
 extern class BadGatewayError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -288,7 +288,7 @@ extern class BadGatewayError extends HttpError implements js.extern.Extern<'rest
 }
 
 // (503 Service Unavailable)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.ServiceUnavailableError')
 extern class ServiceUnavailableError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -297,7 +297,7 @@ extern class ServiceUnavailableError extends HttpError implements js.extern.Exte
 }
 
 // (504 Gateway Time-out)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.GatewayTimeoutError')
 extern class GatewayTimeoutError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -306,7 +306,7 @@ extern class GatewayTimeoutError extends HttpError implements js.extern.Extern<'
 }
 
 // (505 HTTP Version Not Supported)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.HttpVersionNotSupportedError')
 extern class HttpVersionNotSupportedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -315,7 +315,7 @@ extern class HttpVersionNotSupportedError extends HttpError implements js.extern
 }
 
 // (506 Variant Also Negotiates)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.VariantAlsoNegotiatesError')
 extern class VariantAlsoNegotiatesError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -324,7 +324,7 @@ extern class VariantAlsoNegotiatesError extends HttpError implements js.extern.E
 }
 
 // (507 Insufficient Storage)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.InsufficientStorageError')
 extern class InsufficientStorageError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -333,7 +333,7 @@ extern class InsufficientStorageError extends HttpError implements js.extern.Ext
 }
 
 // (509 Bandwidth Limit Exceeded)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.BandwidthLimitExceededError')
 extern class BandwidthLimitExceededError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -342,7 +342,7 @@ extern class BandwidthLimitExceededError extends HttpError implements js.extern.
 }
 
 // (510 Not Extended)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.NotExtendedError')
 extern class NotExtendedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -351,7 +351,7 @@ extern class NotExtendedError extends HttpError implements js.extern.Extern<'res
 }
 
 // (511 Network Authentication Required)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.NetworkAuthenticationRequiredError')
 extern class NetworkAuthenticationRequiredError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -360,7 +360,7 @@ extern class NetworkAuthenticationRequiredError extends HttpError implements js.
 }
 
 // (400 Bad Request)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.BadDigestError')
 extern class BadDigestError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -369,7 +369,7 @@ extern class BadDigestError extends HttpError implements js.extern.Extern<'resti
 }
 
 // (405 Method Not Allowed)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.BadMethodError')
 extern class BadMethodError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -378,7 +378,7 @@ extern class BadMethodError extends HttpError implements js.extern.Extern<'resti
 }
 
 // (500 Internal Server Error)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.InternalError')
 extern class InternalError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -387,7 +387,7 @@ extern class InternalError extends HttpError implements js.extern.Extern<'restif
 }
 
 // (409 Conflict)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.InvalidArgumentError')
 extern class InvalidArgumentError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -396,7 +396,7 @@ extern class InvalidArgumentError extends HttpError implements js.extern.Extern<
 }
 
 // (400 Bad Request)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.InvalidContentError')
 extern class InvalidContentError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -405,7 +405,7 @@ extern class InvalidContentError extends HttpError implements js.extern.Extern<'
 }
 
 // (401 Unauthorized)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.InvalidCredentialsError')
 extern class InvalidCredentialsError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -414,7 +414,7 @@ extern class InvalidCredentialsError extends HttpError implements js.extern.Exte
 }
 
 // (400 Bad Request)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.InvalidHeaderError')
 extern class InvalidHeaderError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -424,7 +424,7 @@ extern class InvalidHeaderError extends HttpError implements js.extern.Extern<'r
 
 // (400 Bad Request)
 @:native('errors.InvalidVersionError')
-@:namespace
+@:externjs(namespace=true)
 extern class InvalidVersionError extends HttpError implements js.extern.Extern<'restify'>
 {
     @:overload(function (options : ErrorOptions) : Void {})
@@ -432,7 +432,7 @@ extern class InvalidVersionError extends HttpError implements js.extern.Extern<'
 }
 
 // (409 Conflict)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.MissingParameterError')
 extern class MissingParameterError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -441,7 +441,7 @@ extern class MissingParameterError extends HttpError implements js.extern.Extern
 }
 
 // (403 Forbidden)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.NotAuthorizedError')
 extern class NotAuthorizedError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -450,7 +450,7 @@ extern class NotAuthorizedError extends HttpError implements js.extern.Extern<'r
 }
 
 // (400 Bad Request)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.RequestExpiredError')
 extern class RequestExpiredError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -459,7 +459,7 @@ extern class RequestExpiredError extends HttpError implements js.extern.Extern<'
 }
 
 // (429 Too Many Requests)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.RequestThrottledError')
 extern class RequestThrottledError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -468,7 +468,7 @@ extern class RequestThrottledError extends HttpError implements js.extern.Extern
 }
 
 // (404 Not Found)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.ResourceNotFoundError')
 extern class ResourceNotFoundError extends HttpError implements js.extern.Extern<'restify'>
 {
@@ -477,7 +477,7 @@ extern class ResourceNotFoundError extends HttpError implements js.extern.Extern
 }
 
 // (406 Not Acceptable)
-@:namespace
+@:externjs(namespace=true)
 @:native('errors.WrongAcceptError')
 extern class WrongAcceptError extends HttpError implements js.extern.Extern<'restify'>
 {

@@ -2,8 +2,8 @@ package js.moment;
 
 #if moment_timezone
 
-@:namespace
 @:native('tz.Zone')
+@:externjs(namespace=true)
 extern class Zone implements js.extern.Extern<'moment-timezone'>
 {
     public var name : String;

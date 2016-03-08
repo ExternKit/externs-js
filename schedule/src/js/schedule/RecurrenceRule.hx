@@ -1,6 +1,6 @@
 package js.schedule;
 
-@:namespace
+@:externjs(namespace=true)
 extern class RecurrenceRule implements js.extern.Extern<'node-schedule'>
 {
     public var recurs : Bool;

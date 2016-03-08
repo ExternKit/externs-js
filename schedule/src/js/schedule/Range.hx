@@ -1,6 +1,6 @@
 package js.schedule;
 
-@:namespace
+@:externjs(namespace=true)
 extern class Range implements js.extern.Extern<'node-schedule'>
 {
     public function new(?start : Int, ?end : Int, ?step : Int);

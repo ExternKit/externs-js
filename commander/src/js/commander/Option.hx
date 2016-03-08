@@ -1,6 +1,6 @@
 package js.commander;
 
-@:namespace
+@:externjs(namespace=true)
 extern class Option implements js.extern.Extern<'commander'>
 {
     public var flags : String;

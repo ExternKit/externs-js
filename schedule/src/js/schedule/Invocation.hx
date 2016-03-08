@@ -1,6 +1,6 @@
 package js.schedule;
 
-@:namespace
+@:externjs(namespace=true)
 extern class Invocation implements js.extern.Extern<'node-schedule'>
 {
     public var job : Job;

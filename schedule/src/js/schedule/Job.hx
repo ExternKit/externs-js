@@ -3,7 +3,7 @@ package js.schedule;
 import haxe.Constraints.Function;
 import js.node.events.EventEmitter;
 
-@:namespace
+@:externjs(namespace=true)
 extern class Job extends EventEmitter<Job> implements js.extern.Extern<'node-schedule'>
 {
     public var job : Function;
