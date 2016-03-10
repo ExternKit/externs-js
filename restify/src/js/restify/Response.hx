@@ -1,6 +1,6 @@
 package js.restify;
 
-import haxe.extern.EitherType;
+import js.extern.Either;
 
 extern class Response extends js.node.http.ServerResponse implements Dynamic
 {
@@ -28,6 +28,6 @@ extern class Response extends js.node.http.ServerResponse implements Dynamic
     public var contentType : String;
     public var headers : haxe.DynamicAccess<String>;
     public var id : String;
-    public var defaultResponseHeaders : EitherType<Bool, String->Void>;
+    public var defaultResponseHeaders : Either<Bool, String->Void>;
     public var body : Null<Dynamic>;
 }

@@ -1,8 +1,8 @@
 package js.moment;
 
 import haxe.Constraints.Function;
-import haxe.extern.EitherType;
 import haxe.extern.Rest;
+import js.extern.Either;
 
 extern class Moment
 #if moment_timezone
@@ -116,10 +116,10 @@ extern class Moment
     @:overload(function (value : Int) : Moment {})
     public function dates() : Int;
     
-    @:overload(function (value : EitherType<Int, String>) : Moment {})
+    @:overload(function (value : Either<Int, String>) : Moment {})
     public function day() : Int;
     
-    @:overload(function (value : EitherType<Int, String>) : Moment {})
+    @:overload(function (value : Either<Int, String>) : Moment {})
     public function days() : Int;
     
     @:overload(function (value : Int) : Moment {})
@@ -143,11 +143,11 @@ extern class Moment
     @:overload(function (value : Int) : Moment {})
     public function isoWeeks() : Int;
     
-    @:overload(function (value : EitherType<Int, String>) : Moment {})
+    @:overload(function (value : Either<Int, String>) : Moment {})
     public function month() : Int;
     
     @:native('months')
-    @:overload(function (value : EitherType<Int, String>) : Moment {})
+    @:overload(function (value : Either<Int, String>) : Moment {})
     public function months_() : Int;
     
     @:overload(function (value : Int) : Moment {})
@@ -189,7 +189,7 @@ extern class Moment
     public function utc() : Moment;
     
     @:overload(function () : Int {})
-    public function utcOffset(offset : EitherType<Int, String>) : Moment;
+    public function utcOffset(offset : Either<Int, String>) : Moment;
     
     @:overload(function (zone : String) : Moment {})
     public function zone() : Int;
