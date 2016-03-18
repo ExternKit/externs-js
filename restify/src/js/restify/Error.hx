@@ -10,8 +10,6 @@ typedef ErrorOptions = {
 extern class HttpError extends js.Error implements js.extern.Extern<'restify'>
 {
     public var code : String;
-    
-    public var message : String;
 
     @:overload(function (options : ErrorOptions) : Void {})
     public function new(?error : String);
