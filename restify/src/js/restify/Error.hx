@@ -7,7 +7,7 @@ typedef ErrorOptions = {
 
 @:externjs(namespace=true)
 @:native('errors.HttpError')
-extern class HttpError implements js.extern.Extern<'restify'>
+extern class HttpError extends js.Error implements js.extern.Extern<'restify'>
 {
     public var code : String;
     
