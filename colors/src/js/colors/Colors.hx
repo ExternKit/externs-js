@@ -1,6 +1,5 @@
 package js.colors;
 
-@:native('colors')
 extern class Colors implements js.extern.Extern<#if (colors_safe == true) 'colors/safe' #else 'colors' #end>
 {
     public static function setTheme(theme : Dynamic) : Void;
