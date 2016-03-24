@@ -7,6 +7,8 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.Type;
 
+using StringTools;
+
 @:noPackageRestrict
 @:enum
 private abstract AccessMode(String) from String to String
@@ -71,8 +73,27 @@ class ExternBuilder
         // Parse meta
         this.handleMetas();
 
+        // Handle version define
+        this.handleVersion();
+
         // Handle access
         this.handleAccess();
+    }
+
+    public function handleVersion() : Void
+    {
+        var module  = this.extractModule(this.currentClass).toLowerCase().replace('-', '_');
+        var version = '${module}_ver';
+        
+        // Check currently defined version
+        var definedVersion = Context.definedValue(version);
+        if (null != definedVersion) {
+            return;
+        }
+
+        // Define default version
+        var defaultVersion = '${module}_default_ver';
+        Compiler.define(version, Context.definedValue(defaultVersion));
     }
 
     public function handleMetas() : Void
