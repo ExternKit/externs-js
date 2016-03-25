@@ -5,7 +5,7 @@ import js.extern.Either;
 import js.node.stream.Writable;
 
 @:externjs(namespace=true)
-extern class Request extends Writable<Request> js.extern.Extern<'superagent'>
+extern class Request extends Writable<Request> implements js.extern.Extern<'superagent'>
 {
     public function field(field : String, value : Dynamic) : Request;
 
