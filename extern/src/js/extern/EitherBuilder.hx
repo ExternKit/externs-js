@@ -7,7 +7,9 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.Type;
 
+using haxe.macro.ComplexTypeTools;
 using haxe.macro.TypeTools;
+using StringTools;
 
 @:noPackageRestrict
 class EitherBuilder
@@ -15,6 +17,8 @@ class EitherBuilder
     private static var EITHER_PACKAGE : Array<String> = ['js', 'extern', 'either'];
 
     private static var EITHER_TYPES : Map<String, ComplexType> = new Map();
+
+    private static var TYPE_EREG : EReg = ~/[^a-z0-9_]/ig;
 
     public static macro function build() : ComplexType
     {
@@ -30,7 +34,7 @@ class EitherBuilder
     public function handle() : ComplexType
     {
         var params = this.listParams();
-        var hash = Context.signature(params);
+        var hash = this.createHash(params);
 
         // Check if cache is available
         if (EITHER_TYPES.exists(hash)) {
@@ -47,6 +51,16 @@ class EitherBuilder
             case TInst(_, params): [ for (param in params) param.toComplexType() ];
             case _: [];
         }
+    }
+
+    private function createHash(params : Array<ComplexType>) : String
+    {
+        var tmp = [
+            for (param in params)
+                TYPE_EREG.replace(param.toString().replace('{ }', '_AnonObj_'), '_')
+        ];
+        tmp.sort(Reflect.compare);
+        return tmp.join('_OR_');
     }
 
     private function defineType(params : Array<ComplexType>, hash : String) : ComplexType
