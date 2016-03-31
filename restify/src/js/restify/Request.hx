@@ -7,11 +7,7 @@ extern class Request extends IncomingMessage implements Dynamic
 {
     // http.IncomingMessage
 
-    public var rawHeaders : Array<String>;
-
     public var rawTrailers : Dynamic;
-
-    public var statusMessage : String;
 
     // /http.IncomingMessage
     
