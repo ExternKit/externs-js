@@ -1,0 +1,14 @@
+{
+    "name": "extern-js-oauth",
+    "url" : "https://github.com/ExternKit/extern-js-oauth/",
+    "license": "MIT",
+    "tags": ["extern", "js", "oauth", "node"],
+    "description": "oauth javascript library extern",
+    "version": "1.0.0",
+    "releasenote": "Initial release",
+    "classPath": "./src",
+    "contributors": [
+        "Fabien Antoine"
+    ],
+    "dependencies": {}
+}
