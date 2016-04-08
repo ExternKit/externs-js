@@ -23,17 +23,17 @@ extern class OAuth implements js.extern.Extern<'oauth'>
 
     public function getProtectedResource(url : String, method : String, oauthToken : String, oauthTokenSecret : String, cb : OAuthRequestCallback) : Void;
 
-    public function delete(url : String, method : String, oauthToken : String, oauthTokenSecret : String, cb : OAuthRequestCallback) : Void;
+    public function delete(url : String, oauthToken : String, oauthTokenSecret : String, cb : OAuthRequestCallback) : Void;
 
-    public function get(url : String, method : String, oauthToken : String, oauthTokenSecret : String, cb : OAuthRequestCallback) : Void;
+    public function get(url : String, oauthToken : String, oauthTokenSecret : String, cb : OAuthRequestCallback) : Void;
 
-    @:overload(function (url : String, method : String, oauthToken : String, oauthTokenSecret : String, params : Dynamic, cb : OAuthRequestCallback) : Void {})
-    @:overload(function (url : String, method : String, oauthToken : String, oauthTokenSecret : String, postBody : OAuthPostBody, cb : OAuthRequestCallback) : Void {})
-    public function put(url : String, method : String, oauthToken : String, oauthTokenSecret : String, postBody : OAuthPostBody, postContentType : String, cb : OAuthRequestCallback) : Void;
+    @:overload(function (url : String, oauthToken : String, oauthTokenSecret : String, params : Dynamic, cb : OAuthRequestCallback) : Void {})
+    @:overload(function (url : String, oauthToken : String, oauthTokenSecret : String, postBody : OAuthPostBody, cb : OAuthRequestCallback) : Void {})
+    public function put(url : String, oauthToken : String, oauthTokenSecret : String, postBody : OAuthPostBody, postContentType : String, cb : OAuthRequestCallback) : Void;
 
-    @:overload(function (url : String, method : String, oauthToken : String, oauthTokenSecret : String, params : Dynamic, cb : OAuthRequestCallback) : Void {})
-    @:overload(function (url : String, method : String, oauthToken : String, oauthTokenSecret : String, postBody : OAuthPostBody, cb : OAuthRequestCallback) : Void {})
-    public function post(url : String, method : String, oauthToken : String, oauthTokenSecret : String, postBody : OAuthPostBody, postContentType : String, cb : OAuthRequestCallback) : Void;
+    @:overload(function (url : String, oauthToken : String, oauthTokenSecret : String, params : Dynamic, cb : OAuthRequestCallback) : Void {})
+    @:overload(function (url : String, oauthToken : String, oauthTokenSecret : String, postBody : OAuthPostBody, cb : OAuthRequestCallback) : Void {})
+    public function post(url : String, oauthToken : String, oauthTokenSecret : String, postBody : OAuthPostBody, postContentType : String, cb : OAuthRequestCallback) : Void;
 
     @:overload(function (cb : Callback<String, String, Dynamic>) : Void {})
     public function getOAuthRequestToken(extraParams : Dynamic, cb : Callback<String, String, Dynamic>) : Void;
