@@ -1,0 +1,17 @@
+{
+    "name": "extern-js-in-app-purchase",
+    "url" : "https://github.com/ExternKit/extern-js-in-app-purchase/",
+    "license": "MIT",
+    "tags": ["extern", "js", "in-app-purchase", "iap", "node"],
+    "description": "glob javascript library extern",
+    "version": "1.0.0",
+    "releasenote": "Initial release",
+    "classPath": "./src",
+    "contributors": [
+        "fantoine"
+    ],
+    "dependencies": {
+        "hxnodejs": "",
+        "extern-js": ""
+    }
+}
