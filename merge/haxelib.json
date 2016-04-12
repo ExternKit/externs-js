@@ -8,7 +8,9 @@
     "releasenote": "Initial release",
     "classPath": "./src",
     "contributors": [
-        "Fabien Antoine"
+        "fantoine"
     ],
-    "dependencies": {}
+    "dependencies": {
+        "extern-js": ""
+    }
 }
