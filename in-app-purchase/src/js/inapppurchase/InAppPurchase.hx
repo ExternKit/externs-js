@@ -22,7 +22,7 @@ extern class InAppPurchase implements js.extern.Extern<'in-app-purchase'>
 
     public static function isExpired(purchasedItem : PurchasedItem) : Bool;
 
-    public static function getPurchasedData(response : Response, ?options : Dynamic) : Array<PurchasedItem>;
+    public static function getPurchaseData(response : Response, ?options : Dynamic) : Array<PurchasedItem>;
 
     public static function refreshGoogleToken(cb : Callback<Dynamic>) : Void;
 }
