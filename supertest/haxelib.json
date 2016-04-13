@@ -13,6 +13,6 @@
     "dependencies": {
         "hxnodejs": "",
         "extern-js": "",
-        "extern-js-superagent": "",
+        "extern-js-superagent": ""
     }
 }
