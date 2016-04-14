@@ -1,0 +1,16 @@
+{
+    "name": "extern-js-sns-validator",
+    "url" : "https://github.com/ExternKit/extern-js-sns-validator/",
+    "license": "MIT",
+    "tags": ["extern", "js", "node", "sns-validator", "aws", "sns"],
+    "description": "AWS SNS message validator node library extern",
+    "version": "1.0.0",
+    "releasenote": "Initial release",
+    "classPath": "./src",
+    "contributors": [
+        "fantoine"
+    ],
+    "dependencies": {
+        "extern-js": ""
+    }
+}
