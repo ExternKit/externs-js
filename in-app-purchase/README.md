@@ -2,7 +2,7 @@
 
 - **Target :** Javascript (NodeJS)
 - **Library :** in-app-purchase
-- **Last tested version :** 1.0.4
+- **Last tested version :** 1.1.1
 - **Available on :** [Github](https://github.com/voltrue2/in-app-purchase) - [NPM](https://www.npmjs.com/package/in-app-purchase)
 
 ## Usage

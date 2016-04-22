@@ -25,4 +25,8 @@ extern class InAppPurchase implements js.extern.Extern<'in-app-purchase'>
     public static function getPurchaseData(response : Response, ?options : Dynamic) : Array<PurchasedItem>;
 
     public static function refreshGoogleToken(cb : Callback<Dynamic>) : Void;
+
+#if (in_app_purchase_ver >= 1.1)
+    public static function validateOnce(service : Service, secretOrPubKey : String, receipt : Receipt, cb : Callback<Response>) : Void;
+#end
 }
