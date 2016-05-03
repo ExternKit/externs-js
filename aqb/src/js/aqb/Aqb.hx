@@ -1,6 +1,5 @@
 package js.aqb;
 
-import haxe.Constraints.Function;
 import haxe.extern.Rest;
 import js.aqb.Types;
 import js.extern.Either;
@@ -29,42 +28,42 @@ extern class Aqb implements js.extern.Extern<'aqb'>
 
     public static function expr(value : Dynamic) : Expression;
 
-    public static function fn(name : String, ?arity : Int) : Function;
+    public static function fn(name : String, ?arity : Int) : Rest<Expression> -> Expression;
 
     /**
      * Partial statement methods
      */
     
     @:native('for')
-    public static function for_(statement : PartialStatement, varname : String) : InObject;
+    public static function for_(varname : String) : InObject;
 
-    public static function filter(statement : PartialStatement, expr : Expression) : PartialStatement;
+    public static function filter(expr : Expression) : PartialStatement;
 
-    public static function let(statement : PartialStatement, varname : String, ?expr : Expression) : PartialStatement;
+    public static function let(varname : String, ?token : Token) : PartialStatement;
 
-    public static function collect(statement : PartialStatement, varname : String, ?expr : Expression) : PartialStatement;
+    public static function collect(varname : String, ?expr : Expression) : PartialStatement;
 
-    public static function collectWithCountInto(statement : PartialStatement, varname : String) : PartialStatement;
+    public static function collectWithCountInto(varname : String) : PartialStatement;
 
-    public static function sort(statement : PartialStatement, args : Rest<Dynamic>) : PartialStatement;
+    public static function sort(args : Rest<Dynamic>) : PartialStatement;
 
-    @:overload(function (statement : PartialStatement, count : Int) : PartialStatement {})
-    public static function limit(statement : PartialStatement, offset : Int, count : Int) : PartialStatement;
+    @:overload(function (count : Int) : PartialStatement {})
+    public static function limit(offset : Int, count : Int) : PartialStatement;
 
     @:native('return')
-    public static function return_(statement : PartialStatement) : Expression;
+    public static function return_(token : Token) : Expression;
 
-    public static function returnDistinct(statement : PartialStatement) : Expression;
+    public static function returnDistinct(token : Token) : Expression;
 
-    public static function remove(statement : PartialStatement, expr : Expression) : IntoObject;
+    public static function remove(expr : Expression) : IntoObject;
 
-    public static function upsert(statement : PartialStatement, expr : Expression) : { insert : { update : IntoObject, replace : IntoObject } };
+    public static function upsert(expr : Expression) : { insert : { update : IntoObject, replace : IntoObject } };
 
-    public static function insert(statement : PartialStatement, expr : Expression) : IntoObject;
+    public static function insert(expr : Expression) : IntoObject;
 
-    public static function update(statement : PartialStatement, expr : Expression) : WithObject;
+    public static function update(expr : Expression) : WithObject;
 
-    public static function replace(statement : PartialStatement, expr : Expression) : WithObject;
+    public static function replace(expr : Expression) : WithObject;
 
     /**
      * Expression methods

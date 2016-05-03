@@ -13,7 +13,7 @@ extern class PartialStatement implements js.extern.Extern<'aqb'>
 
     public function filter(expr : Expression) : PartialStatement;
 
-    public function let(varname : String, ?expr : Expression) : PartialStatement;
+    public function let(varname : String, ?token : Token) : PartialStatement;
 
     public function collect(varname : String, ?expr : Expression) : PartialStatement;
 
@@ -25,9 +25,9 @@ extern class PartialStatement implements js.extern.Extern<'aqb'>
     public function limit(offset : Int, count : Int) : PartialStatement;
 
     @:native('return')
-    public function return_() : Expression;
+    public function return_(expr : Token) : Expression;
 
-    public function returnDistinct() : Expression;
+    public function returnDistinct(expr : Token) : Expression;
 
     public function remove(expr : Expression) : IntoObject;
 
@@ -38,6 +38,6 @@ extern class PartialStatement implements js.extern.Extern<'aqb'>
     public function update(expr : Expression) : WithObject;
 
     public function replace(expr : Expression) : WithObject;
-    
+
     public function toAQL() : String;
 }
