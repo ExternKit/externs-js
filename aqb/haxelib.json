@@ -1,0 +1,16 @@
+{
+    "name": "extern-js-aqb",
+    "url" : "https://github.com/ExternKit/extern-js-aqb/",
+    "license": "MIT",
+    "tags": ["extern", "js", "aqb", "arango", "arangodb", "aql", "node", "browser"],
+    "description": "aqb extern",
+    "version": "1.0.0",
+    "releasenote": "Initial release",
+    "classPath": "./src",
+    "contributors": [
+        "fantoine"
+    ],
+    "dependencies": {
+        "extern-js": ""
+    }
+}
