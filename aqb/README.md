@@ -15,7 +15,11 @@ class Main
   static function main()
   {
     var qb = Aqb.qb();
-    trace(qb.for_('x').in_('1..5').return_('x')));
+    var query = Aqb
+        .for_('x')
+        .in_('1..5')
+        .return_(Aqb.add('x', Aqb.int(1)))
+    ;
   }
 }
 ```
