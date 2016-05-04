@@ -15,14 +15,15 @@ extern class PartialStatement implements js.extern.Extern<'aqb'>
 
     public function let(varname : String, ?token : Token) : PartialStatement;
 
-    public function collect(varname : String, ?expr : Expression) : PartialStatement;
+    @:overload(function (values : {}) : CollectExpression {})
+    public function collect(varname : String, ?expr : Expression) : CollectExpression;
 
-    public function collectWithCountInto(varname : String) : PartialStatement;
+    public function collectWithCountInto(varname : String) : CollectWithCountIntoExpression;
 
     public function sort(args : Rest<Dynamic>) : PartialStatement;
 
-    @:overload(function (count : Int) : PartialStatement {})
-    public function limit(offset : Int, count : Int) : PartialStatement;
+    @:overload(function (count : Token) : PartialStatement {})
+    public function limit(offset : Token, count : Token) : PartialStatement;
 
     @:native('return')
     public function return_(expr : Token) : Expression;

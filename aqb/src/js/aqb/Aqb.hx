@@ -41,14 +41,15 @@ extern class Aqb implements js.extern.Extern<'aqb'>
 
     public static function let(varname : String, ?token : Token) : PartialStatement;
 
-    public static function collect(varname : String, ?expr : Expression) : PartialStatement;
+    @:overload(function (values : {}) : CollectExpression {})
+    public static function collect(varname : String, ?expr : Expression) : CollectExpression;
 
-    public static function collectWithCountInto(varname : String) : PartialStatement;
+    public static function collectWithCountInto(varname : String) : CollectWithCountIntoExpression;
 
     public static function sort(args : Rest<Dynamic>) : PartialStatement;
 
-    @:overload(function (count : Int) : PartialStatement {})
-    public static function limit(offset : Int, count : Int) : PartialStatement;
+    @:overload(function (count : Token) : PartialStatement {})
+    public static function limit(offset : Token, count : Token) : PartialStatement;
 
     @:native('return')
     public static function return_(token : Token) : Expression;
@@ -107,9 +108,9 @@ extern class Aqb implements js.extern.Extern<'aqb'>
 
     public static function neq(expr : Expression, expr : Token) : Expression;
 
-    public static function not(expr : Expression, expr : Token) : Expression;
+    public static function not(expr : Token) : Expression;
 
-    public static function neg(expr : Expression, expr : Token) : Expression;
+    public static function neg(expr : Token) : Expression;
 
     @:native('in')
     public static function in_(expr : Expression, expr : Token) : Expression;
