@@ -6,7 +6,7 @@ import js.extern.Either;
 
 @:externjs(namespace=true)
 @:native('_PartialStatement')
-extern class PartialStatement implements js.extern.Extern<'aqb'>
+extern class PartialStatement implements js.extern.Extern<'aqb/types'>
 {
     @:native('for')
     public function for_(varname : String) : InObject;

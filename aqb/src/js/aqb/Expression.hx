@@ -6,7 +6,7 @@ import js.extern.Either;
 
 @:externjs(namespace=true)
 @:native('_Expression')
-extern class Expression implements js.extern.Extern<'aqb'>
+extern class Expression implements js.extern.Extern<'aqb/types'>
 {
     public function range(max : Expression) : Expression;
 
