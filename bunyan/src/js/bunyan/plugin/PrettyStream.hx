@@ -2,7 +2,7 @@ package js.bunyan.plugin;
 
 import js.node.stream.Writable;
 
-extern class PrettyStream implements js.extern.Extern<'bunyan-prettystream'>
+extern class PrettyStream extends Writable<PrettyStream> implements js.extern.Extern<'bunyan-prettystream'>
 {
     public function new(?options : Dynamic);
 
