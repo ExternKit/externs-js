@@ -33,6 +33,10 @@ extern class Validator implements Dynamic implements js.extern.Extern<'validator
     public static function isCreditCard(str : String) : Bool;
     
     public static function isCurrency(str : String, ?options : CurrencyOptions) : Bool;
+    
+#if (validator_ver >= 5.6)
+    public static function isDataURI(str : String) : Bool;
+#end
 
     public static function isDate(str : String) : Bool;
     
@@ -74,13 +78,26 @@ extern class Validator implements Dynamic implements js.extern.Extern<'validator
     
     public static function isMACAddress(str : String) : Bool;
     
+#if (validator_ver >= 5.6)
+    public static function isMD5(str : String) : Bool;
+#end
+
     public static function isMobilePhone(str : String, locale : String) : Bool;
     
     public static function isMongoId(str : String) : Bool;
     
     public static function isMultibyte(str : String) : Bool;
     
+#if (validator_ver <= 6.0)
     public static function isNull(str : String) : Bool;
+#else
+    public static inline function isNull(str : String) : Bool
+    {
+        return Validator.isEmpty(str);
+    }
+
+    public static function isEmpty(str : String) : Bool;
+#end
     
     public static function isNumeric(str : String) : Bool;
     
@@ -95,6 +112,10 @@ extern class Validator implements Dynamic implements js.extern.Extern<'validator
     public static function isVariableWidth(str : String) : Bool;
     
     public static function isWhitelisted(str : String, chars : String) : Bool;
+
+#if (validator_ver >= 6.1)
+    public static function isISSN(str : String, ?options : ISSNOptions) : Bool;
+#end
     
     @:overload(function (str : String, pattern : EReg) : Bool {})
     public static function matches(str : String, pattern : String , modifiers : String) : Bool;
@@ -125,7 +146,7 @@ extern class Validator implements Dynamic implements js.extern.Extern<'validator
 
     public static function normalizeEmail(input : String, ?options : NormalizeEmailOptions) : String;
     
-#if (validator_ver >= 5.0)
+#if (validator_ver >= 5.1)
     public static function unescape(str : String) : String;
 #end
 }

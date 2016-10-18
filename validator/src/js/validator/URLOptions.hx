@@ -9,5 +9,5 @@ typedef URLOptions = {
     ?host_whitelist : Bool,
     ?host_blacklist : Bool,
     ?allow_trailing_dot : Bool,
-    ?allow_protocol_relative_urls : Bool
+    ?allow_protocol_relative_urls : Bool,
 }

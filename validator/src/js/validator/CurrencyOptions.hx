@@ -12,5 +12,5 @@ typedef CurrencyOptions = {
     ?allow_negative_sign_placeholder : Bool,
     ?thousands_separator : String,
     ?decimal_separator : String,
-    ?allow_space_after_digits : Bool
+    ?allow_space_after_digits : Bool,
 }
